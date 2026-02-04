@@ -1,0 +1,627 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Skill Swappr Design System - Silver/White/Black Tech Aesthetic */
+/* Module 1.1: Design Token Refinement - Complete Implementation */
+
+@layer base {
+  :root {
+    /* ========================================
+       CORE COLOR PALETTE
+       Silver/White/Black Tech Aesthetic
+    ======================================== */
+    
+    /* Background Colors */
+    --background: 0 0% 100%;
+    --background-subtle: 0 0% 99%;
+    --background-muted: 0 0% 97%;
+    --foreground: 0 0% 10%;
+
+    /* Card & Surface Colors */
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 10%;
+    --card-elevated: 0 0% 100%;
+    --card-sunken: 0 0% 96%;
+
+    /* Popover */
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+
+    /* ========================================
+       PRIMARY PALETTE - Deep Black
+    ======================================== */
+    --primary: 0 0% 10%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 0 0% 15%;
+    --primary-active: 0 0% 5%;
+
+    /* ========================================
+       SECONDARY PALETTE - Silver
+    ======================================== */
+    --secondary: 0 0% 92%;
+    --secondary-foreground: 0 0% 15%;
+    --secondary-hover: 0 0% 88%;
+    --secondary-active: 0 0% 85%;
+
+    /* ========================================
+       MUTED PALETTE - Light Silver
+    ======================================== */
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --muted-hover: 0 0% 94%;
+
+    /* ========================================
+       ACCENT PALETTE - Metallic Silver
+    ======================================== */
+    --accent: 0 0% 85%;
+    --accent-foreground: 0 0% 10%;
+    --accent-hover: 0 0% 80%;
+    --accent-active: 0 0% 75%;
+
+    /* ========================================
+       SILVER METALLIC TONES
+       Extended palette for metallic effects
+    ======================================== */
+    --silver-50: 0 0% 98%;
+    --silver-100: 0 0% 96%;
+    --silver-200: 0 0% 92%;
+    --silver-300: 0 0% 88%;
+    --silver-400: 0 0% 78%;
+    --silver-500: 0 0% 68%;
+    --silver-600: 0 0% 55%;
+    --silver-700: 0 0% 42%;
+    --silver-800: 0 0% 30%;
+    --silver-900: 0 0% 18%;
+    --silver-950: 0 0% 10%;
+
+    /* ========================================
+       SEMANTIC COLORS
+    ======================================== */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --destructive-hover: 0 72% 45%;
+    --destructive-muted: 0 72% 95%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+    --success-hover: 142 76% 30%;
+    --success-muted: 142 76% 95%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 10%;
+    --warning-hover: 38 92% 45%;
+    --warning-muted: 38 92% 95%;
+
+    --info: 217 91% 60%;
+    --info-foreground: 0 0% 100%;
+    --info-hover: 217 91% 55%;
+    --info-muted: 217 91% 95%;
+
+    /* ========================================
+       BORDERS & INPUTS
+    ======================================== */
+    --border: 0 0% 90%;
+    --border-subtle: 0 0% 94%;
+    --border-strong: 0 0% 80%;
+    --input: 0 0% 90%;
+    --input-focus: 0 0% 85%;
+    --ring: 0 0% 20%;
+
+    --radius: 0.75rem;
+
+    /* ========================================
+       METALLIC GRADIENTS
+       Silver-to-white linear and radial gradients
+    ======================================== */
+    --gradient-silver: linear-gradient(135deg, hsl(0 0% 85%) 0%, hsl(0 0% 100%) 50%, hsl(0 0% 90%) 100%);
+    --gradient-silver-reverse: linear-gradient(135deg, hsl(0 0% 90%) 0%, hsl(0 0% 100%) 50%, hsl(0 0% 85%) 100%);
+    --gradient-metallic: linear-gradient(180deg, hsl(0 0% 98%) 0%, hsl(0 0% 92%) 100%);
+    --gradient-metallic-horizontal: linear-gradient(90deg, hsl(0 0% 98%) 0%, hsl(0 0% 92%) 100%);
+    --gradient-dark: linear-gradient(135deg, hsl(0 0% 10%) 0%, hsl(0 0% 20%) 100%);
+    --gradient-dark-reverse: linear-gradient(135deg, hsl(0 0% 20%) 0%, hsl(0 0% 10%) 100%);
+    --gradient-glass: linear-gradient(135deg, hsl(0 0% 100% / 0.9) 0%, hsl(0 0% 100% / 0.7) 100%);
+    --gradient-glass-subtle: linear-gradient(135deg, hsl(0 0% 100% / 0.7) 0%, hsl(0 0% 100% / 0.5) 100%);
+    
+    /* Radial Metallic Sheens */
+    --gradient-radial-silver: radial-gradient(ellipse at center, hsl(0 0% 98%) 0%, hsl(0 0% 88%) 100%);
+    --gradient-radial-shine: radial-gradient(ellipse at top, hsl(0 0% 100%) 0%, hsl(0 0% 95%) 50%, hsl(0 0% 90%) 100%);
+    --gradient-radial-spotlight: radial-gradient(circle at 30% 30%, hsl(0 0% 100%) 0%, transparent 60%);
+    
+    /* Conic Gradients for Special Effects */
+    --gradient-conic-silver: conic-gradient(from 180deg at 50% 50%, hsl(0 0% 85%) 0deg, hsl(0 0% 100%) 180deg, hsl(0 0% 85%) 360deg);
+
+    /* ========================================
+       SHADOW SYSTEM
+       Soft, Medium, Strong, Glow, Neon
+    ======================================== */
+    --shadow-soft: 0 2px 8px -2px hsl(0 0% 0% / 0.08);
+    --shadow-medium: 0 4px 16px -4px hsl(0 0% 0% / 0.12);
+    --shadow-strong: 0 8px 32px -8px hsl(0 0% 0% / 0.16);
+    --shadow-heavy: 0 16px 48px -12px hsl(0 0% 0% / 0.2);
+    --shadow-glow: 0 0 20px hsl(0 0% 75% / 0.5);
+    --shadow-glow-strong: 0 0 40px hsl(0 0% 75% / 0.6);
+    --shadow-neon: 0 0 10px hsl(0 0% 100% / 0.8), 0 0 20px hsl(0 0% 90% / 0.6), 0 0 30px hsl(0 0% 80% / 0.4);
+    --shadow-neon-subtle: 0 0 8px hsl(0 0% 100% / 0.5), 0 0 16px hsl(0 0% 90% / 0.3);
+    --shadow-inner: inset 0 2px 4px 0 hsl(0 0% 0% / 0.06);
+    --shadow-inner-strong: inset 0 4px 8px 0 hsl(0 0% 0% / 0.1);
+    
+    /* Colored Shadows for Semantic States */
+    --shadow-success: 0 4px 16px -4px hsl(142 76% 36% / 0.25);
+    --shadow-warning: 0 4px 16px -4px hsl(38 92% 50% / 0.25);
+    --shadow-destructive: 0 4px 16px -4px hsl(0 72% 51% / 0.25);
+    --shadow-info: 0 4px 16px -4px hsl(217 91% 60% / 0.25);
+
+    /* ========================================
+       CHART COLORS
+       Analytics & Data Visualization
+    ======================================== */
+    --chart-1: 0 0% 20%;
+    --chart-2: 0 0% 35%;
+    --chart-3: 0 0% 50%;
+    --chart-4: 0 0% 65%;
+    --chart-5: 0 0% 80%;
+    --chart-6: 0 0% 90%;
+    
+    /* Extended Chart Palette */
+    --chart-accent-1: 217 91% 60%;
+    --chart-accent-2: 142 76% 36%;
+    --chart-accent-3: 38 92% 50%;
+    --chart-accent-4: 280 65% 60%;
+    --chart-accent-5: 0 72% 51%;
+    
+    /* Chart Gradients */
+    --chart-gradient-1: linear-gradient(180deg, hsl(0 0% 20%) 0%, hsl(0 0% 40%) 100%);
+    --chart-gradient-2: linear-gradient(180deg, hsl(217 91% 60%) 0%, hsl(217 91% 40%) 100%);
+
+    /* ========================================
+       SKELETON LOADING COLORS
+    ======================================== */
+    --skeleton: 0 0% 92%;
+    --skeleton-foreground: 0 0% 96%;
+    --skeleton-shimmer: linear-gradient(90deg, hsl(0 0% 92%) 0%, hsl(0 0% 98%) 50%, hsl(0 0% 92%) 100%);
+
+    /* ========================================
+       SIDEBAR COLORS
+    ======================================== */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 0% 25%;
+    --sidebar-primary: 0 0% 10%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 94%;
+    --sidebar-accent-foreground: 0 0% 10%;
+    --sidebar-border: 0 0% 92%;
+    --sidebar-ring: 0 0% 20%;
+
+    /* ========================================
+       FONTS
+    ======================================== */
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+    /* ========================================
+       TYPOGRAPHY SCALE
+       Module 1.2: Typography System
+    ======================================== */
+    
+    /* Headline Scale */
+    --text-h1: 3rem;        /* 48px */
+    --text-h2: 2.5rem;      /* 40px */
+    --text-h3: 2rem;        /* 32px */
+    --text-h4: 1.5rem;      /* 24px */
+    --text-h5: 1.25rem;     /* 20px */
+    --text-h6: 1.125rem;    /* 18px */
+    
+    /* Body Text Scale */
+    --text-body-lg: 1.125rem;   /* 18px */
+    --text-body: 1rem;          /* 16px */
+    --text-body-sm: 0.875rem;   /* 14px */
+    --text-body-xs: 0.75rem;    /* 12px */
+    
+    /* Monospace Scale (for codes/transactions) */
+    --text-mono-lg: 1rem;       /* 16px */
+    --text-mono: 0.875rem;      /* 14px */
+    --text-mono-sm: 0.75rem;    /* 12px */
+    --text-mono-xs: 0.625rem;   /* 10px */
+    
+    /* Line Heights */
+    --leading-none: 1;
+    --leading-tight: 1.25;
+    --leading-snug: 1.375;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.625;
+    --leading-loose: 2;
+    
+    /* Letter Spacing */
+    --tracking-tighter: -0.05em;
+    --tracking-tight: -0.025em;
+    --tracking-normal: 0em;
+    --tracking-wide: 0.025em;
+    --tracking-wider: 0.05em;
+    --tracking-widest: 0.1em;
+    
+    /* Font Weights */
+    --font-light: 300;
+    --font-normal: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+    
+    /* Text Gradients */
+    --text-gradient-silver: linear-gradient(135deg, hsl(0 0% 30%) 0%, hsl(0 0% 60%) 50%, hsl(0 0% 30%) 100%);
+    --text-gradient-dark: linear-gradient(135deg, hsl(0 0% 5%) 0%, hsl(0 0% 25%) 100%);
+    --text-gradient-shine: linear-gradient(90deg, hsl(0 0% 20%) 0%, hsl(0 0% 50%) 25%, hsl(0 0% 80%) 50%, hsl(0 0% 50%) 75%, hsl(0 0% 20%) 100%);
+    --text-gradient-metallic: linear-gradient(180deg, hsl(0 0% 75%) 0%, hsl(0 0% 45%) 100%);
+
+    /* ========================================
+       SPACING & LAYOUT TOKENS
+    ======================================== */
+    --spacing-page: 2rem;
+    --spacing-section: 4rem;
+    --spacing-card: 1.5rem;
+    --max-width-content: 1400px;
+    --max-width-narrow: 800px;
+  }
+
+  /* ========================================
+     DARK THEME
+  ======================================== */
+  .dark {
+    /* Background Colors */
+    --background: 0 0% 8%;
+    --background-subtle: 0 0% 10%;
+    --background-muted: 0 0% 12%;
+    --foreground: 0 0% 92%;
+
+    /* Card & Surface Colors */
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 92%;
+    --card-elevated: 0 0% 15%;
+    --card-sunken: 0 0% 8%;
+
+    /* Popover */
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 92%;
+
+    /* Primary */
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 8%;
+    --primary-hover: 0 0% 90%;
+    --primary-active: 0 0% 100%;
+
+    /* Secondary */
+    --secondary: 0 0% 18%;
+    --secondary-foreground: 0 0% 88%;
+    --secondary-hover: 0 0% 22%;
+    --secondary-active: 0 0% 25%;
+
+    /* Muted */
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
+    --muted-hover: 0 0% 18%;
+
+    /* Accent */
+    --accent: 0 0% 22%;
+    --accent-foreground: 0 0% 92%;
+    --accent-hover: 0 0% 28%;
+    --accent-active: 0 0% 32%;
+
+    /* Silver Metallic Tones (inverted for dark) */
+    --silver-50: 0 0% 10%;
+    --silver-100: 0 0% 15%;
+    --silver-200: 0 0% 20%;
+    --silver-300: 0 0% 28%;
+    --silver-400: 0 0% 38%;
+    --silver-500: 0 0% 50%;
+    --silver-600: 0 0% 62%;
+    --silver-700: 0 0% 75%;
+    --silver-800: 0 0% 85%;
+    --silver-900: 0 0% 92%;
+    --silver-950: 0 0% 98%;
+
+    /* Semantic Colors */
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --destructive-hover: 0 62% 50%;
+    --destructive-muted: 0 62% 15%;
+
+    --success: 142 60% 40%;
+    --success-foreground: 0 0% 100%;
+    --success-hover: 142 60% 45%;
+    --success-muted: 142 60% 15%;
+
+    --warning: 38 80% 55%;
+    --warning-foreground: 0 0% 10%;
+    --warning-hover: 38 80% 60%;
+    --warning-muted: 38 80% 15%;
+
+    --info: 217 80% 55%;
+    --info-foreground: 0 0% 100%;
+    --info-hover: 217 80% 60%;
+    --info-muted: 217 80% 15%;
+
+    /* Borders & Inputs */
+    --border: 0 0% 20%;
+    --border-subtle: 0 0% 16%;
+    --border-strong: 0 0% 30%;
+    --input: 0 0% 18%;
+    --input-focus: 0 0% 25%;
+    --ring: 0 0% 80%;
+
+    /* Gradients */
+    --gradient-silver: linear-gradient(135deg, hsl(0 0% 20%) 0%, hsl(0 0% 30%) 50%, hsl(0 0% 22%) 100%);
+    --gradient-silver-reverse: linear-gradient(135deg, hsl(0 0% 22%) 0%, hsl(0 0% 30%) 50%, hsl(0 0% 20%) 100%);
+    --gradient-metallic: linear-gradient(180deg, hsl(0 0% 15%) 0%, hsl(0 0% 10%) 100%);
+    --gradient-metallic-horizontal: linear-gradient(90deg, hsl(0 0% 15%) 0%, hsl(0 0% 10%) 100%);
+    --gradient-dark: linear-gradient(135deg, hsl(0 0% 5%) 0%, hsl(0 0% 12%) 100%);
+    --gradient-dark-reverse: linear-gradient(135deg, hsl(0 0% 12%) 0%, hsl(0 0% 5%) 100%);
+    --gradient-glass: linear-gradient(135deg, hsl(0 0% 20% / 0.9) 0%, hsl(0 0% 15% / 0.7) 100%);
+    --gradient-glass-subtle: linear-gradient(135deg, hsl(0 0% 20% / 0.7) 0%, hsl(0 0% 15% / 0.5) 100%);
+    
+    /* Radial Metallic Sheens */
+    --gradient-radial-silver: radial-gradient(ellipse at center, hsl(0 0% 20%) 0%, hsl(0 0% 12%) 100%);
+    --gradient-radial-shine: radial-gradient(ellipse at top, hsl(0 0% 25%) 0%, hsl(0 0% 15%) 50%, hsl(0 0% 10%) 100%);
+    --gradient-radial-spotlight: radial-gradient(circle at 30% 30%, hsl(0 0% 30%) 0%, transparent 60%);
+    
+    /* Conic Gradients */
+    --gradient-conic-silver: conic-gradient(from 180deg at 50% 50%, hsl(0 0% 20%) 0deg, hsl(0 0% 30%) 180deg, hsl(0 0% 20%) 360deg);
+
+    /* Shadows */
+    --shadow-soft: 0 2px 8px -2px hsl(0 0% 0% / 0.3);
+    --shadow-medium: 0 4px 16px -4px hsl(0 0% 0% / 0.4);
+    --shadow-strong: 0 8px 32px -8px hsl(0 0% 0% / 0.5);
+    --shadow-heavy: 0 16px 48px -12px hsl(0 0% 0% / 0.6);
+    --shadow-glow: 0 0 20px hsl(0 0% 40% / 0.3);
+    --shadow-glow-strong: 0 0 40px hsl(0 0% 40% / 0.4);
+    --shadow-neon: 0 0 10px hsl(0 0% 60% / 0.4), 0 0 20px hsl(0 0% 50% / 0.3), 0 0 30px hsl(0 0% 40% / 0.2);
+    --shadow-neon-subtle: 0 0 8px hsl(0 0% 60% / 0.3), 0 0 16px hsl(0 0% 50% / 0.2);
+    --shadow-inner: inset 0 2px 4px 0 hsl(0 0% 0% / 0.2);
+    --shadow-inner-strong: inset 0 4px 8px 0 hsl(0 0% 0% / 0.3);
+    
+    /* Colored Shadows */
+    --shadow-success: 0 4px 16px -4px hsl(142 60% 40% / 0.3);
+    --shadow-warning: 0 4px 16px -4px hsl(38 80% 55% / 0.3);
+    --shadow-destructive: 0 4px 16px -4px hsl(0 62% 45% / 0.3);
+    --shadow-info: 0 4px 16px -4px hsl(217 80% 55% / 0.3);
+
+    /* Chart Colors */
+    --chart-1: 0 0% 85%;
+    --chart-2: 0 0% 70%;
+    --chart-3: 0 0% 55%;
+    --chart-4: 0 0% 40%;
+    --chart-5: 0 0% 25%;
+    --chart-6: 0 0% 15%;
+    
+    /* Extended Chart Palette */
+    --chart-accent-1: 217 80% 55%;
+    --chart-accent-2: 142 60% 40%;
+    --chart-accent-3: 38 80% 55%;
+    --chart-accent-4: 280 55% 55%;
+    --chart-accent-5: 0 62% 45%;
+    
+    /* Chart Gradients */
+    --chart-gradient-1: linear-gradient(180deg, hsl(0 0% 70%) 0%, hsl(0 0% 40%) 100%);
+    --chart-gradient-2: linear-gradient(180deg, hsl(217 80% 55%) 0%, hsl(217 80% 35%) 100%);
+
+    /* Skeleton Loading */
+    --skeleton: 0 0% 18%;
+    --skeleton-foreground: 0 0% 22%;
+    --skeleton-shimmer: linear-gradient(90deg, hsl(0 0% 18%) 0%, hsl(0 0% 25%) 50%, hsl(0 0% 18%) 100%);
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 10%;
+    --sidebar-foreground: 0 0% 85%;
+    --sidebar-primary: 0 0% 95%;
+    --sidebar-primary-foreground: 0 0% 10%;
+    --sidebar-accent: 0 0% 18%;
+    --sidebar-accent-foreground: 0 0% 90%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 0 0% 80%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  /* Glass Morphism Utilities */
+  .glass {
+    @apply bg-background/80 backdrop-blur-lg;
+  }
+  
+  .glass-subtle {
+    @apply bg-background/60 backdrop-blur-md;
+  }
+  
+  .glass-strong {
+    @apply bg-background/90 backdrop-blur-xl;
+  }
+  
+  /* ========================================
+     TEXT UTILITIES
+     Module 1.2: Typography System
+  ======================================== */
+  
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  
+  /* Text Gradient Utilities */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-dark);
+  }
+  
+  .text-gradient-silver {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--text-gradient-silver);
+  }
+  
+  .text-gradient-metallic {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--text-gradient-metallic);
+  }
+  
+  .text-gradient-shine {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--text-gradient-shine);
+    background-size: 200% 100%;
+    animation: text-shimmer 3s linear infinite;
+  }
+  
+  @keyframes text-shimmer {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+  
+  /* Headline Typography Presets */
+  .headline-hero {
+    @apply font-display font-bold tracking-tight;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: var(--leading-tight);
+  }
+  
+  .headline-section {
+    @apply font-display font-bold tracking-tight;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    line-height: var(--leading-tight);
+  }
+  
+  .headline-card {
+    @apply font-display font-semibold;
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    line-height: var(--leading-snug);
+  }
+  
+  /* Body Typography Presets */
+  .body-large {
+    @apply font-sans;
+    font-size: var(--text-body-lg);
+    line-height: var(--leading-relaxed);
+  }
+  
+  .body-default {
+    @apply font-sans;
+    font-size: var(--text-body);
+    line-height: var(--leading-normal);
+  }
+  
+  .body-small {
+    @apply font-sans;
+    font-size: var(--text-body-sm);
+    line-height: var(--leading-normal);
+  }
+  
+  .body-caption {
+    @apply font-sans;
+    font-size: var(--text-body-xs);
+    line-height: var(--leading-normal);
+    letter-spacing: var(--tracking-wide);
+  }
+  
+  /* Monospace Typography Presets (for codes/transactions) */
+  .code-block {
+    @apply font-mono;
+    font-size: var(--text-mono);
+    line-height: var(--leading-relaxed);
+    letter-spacing: var(--tracking-normal);
+  }
+  
+  .code-inline {
+    @apply font-mono px-1.5 py-0.5 rounded bg-muted;
+    font-size: var(--text-mono-sm);
+  }
+  
+  .transaction-code {
+    @apply font-mono font-medium tracking-wider;
+    font-size: var(--text-mono);
+  }
+  
+  .transaction-code-lg {
+    @apply font-mono font-medium tracking-wider;
+    font-size: var(--text-mono-lg);
+  }
+  
+  /* Label Typography */
+  .label-uppercase {
+    @apply font-sans font-medium uppercase;
+    font-size: var(--text-body-xs);
+    letter-spacing: var(--tracking-widest);
+  }
+  
+  .label-badge {
+    @apply font-sans font-semibold;
+    font-size: var(--text-body-xs);
+    letter-spacing: var(--tracking-wide);
+  }
+  
+  /* Metallic Surface Utilities */
+  .surface-metallic {
+    background: var(--gradient-metallic);
+  }
+  
+  .surface-silver {
+    background: var(--gradient-silver);
+  }
+  
+  .surface-glass {
+    background: var(--gradient-glass);
+    @apply backdrop-blur-lg;
+  }
+  
+  /* Skeleton Animation */
+  .skeleton-shimmer {
+    background: var(--skeleton-shimmer);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes shimmer {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+  
+  /* Glow Effects */
+  .glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .glow-strong {
+    box-shadow: var(--shadow-glow-strong);
+  }
+  
+  .neon {
+    box-shadow: var(--shadow-neon);
+  }
+  
+  .neon-subtle {
+    box-shadow: var(--shadow-neon-subtle);
+  }
+}
