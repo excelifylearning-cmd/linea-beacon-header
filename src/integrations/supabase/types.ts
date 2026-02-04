@@ -14,75 +14,7 @@ export type Database = {
   }
   public: {
     Tables: {
-      profiles: {
-        Row: {
-          avatar_url: string | null
-          bio: string | null
-          created_at: string
-          date_of_birth: string | null
-          display_name: string | null
-          gender: string | null
-          graduation_year: number | null
-          id: string
-          is_student: boolean | null
-          is_verified: boolean | null
-          language: string | null
-          location: string | null
-          skill_points_balance: number | null
-          social_links: Json | null
-          timezone: string | null
-          university_name: string | null
-          updated_at: string
-          username: string | null
-          verification_tier: string | null
-          website_url: string | null
-        }
-        Insert: {
-          avatar_url?: string | null
-          bio?: string | null
-          created_at?: string
-          date_of_birth?: string | null
-          display_name?: string | null
-          gender?: string | null
-          graduation_year?: number | null
-          id: string
-          is_student?: boolean | null
-          is_verified?: boolean | null
-          language?: string | null
-          location?: string | null
-          skill_points_balance?: number | null
-          social_links?: Json | null
-          timezone?: string | null
-          university_name?: string | null
-          updated_at?: string
-          username?: string | null
-          verification_tier?: string | null
-          website_url?: string | null
-        }
-        Update: {
-          avatar_url?: string | null
-          bio?: string | null
-          created_at?: string
-          date_of_birth?: string | null
-          display_name?: string | null
-          gender?: string | null
-          graduation_year?: number | null
-          id?: string
-          is_student?: boolean | null
-          is_verified?: boolean | null
-          language?: string | null
-          location?: string | null
-          skill_points_balance?: number | null
-          social_links?: Json | null
-          timezone?: string | null
-          university_name?: string | null
-          updated_at?: string
-          username?: string | null
-          verification_tier?: string | null
-          website_url?: string | null
-        }
-        Relationships: []
-      }
+      [_ in never]: never
     }
     Views: {
       [_ in never]: never
